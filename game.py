@@ -1,4 +1,3 @@
-# game.py
 import pygame
 import time
 import random
@@ -9,7 +8,7 @@ from city import City
 class Game:
     def __init__(self):
         pygame.init()
-        # Pantalla completa
+        
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
         pygame.display.set_caption("Conquista de Chiloé")
         self.clock = pygame.time.Clock()
@@ -22,19 +21,19 @@ class Game:
         self.game_state = "menu"
         self.last_event_time = time.time()
 
-        # --- Sistema de notificaciones ---
-        self.messages = []  # lista de tuplas (texto, tiempo)
-        self.message_duration = 5  # duración visible de los mensajes recientes
-        self.scroll_offset = 0  # desplazamiento vertical del scroll
-        self.notification_area_height = 200  # altura del área de notificaciones
+        
+        self.messages = []  
+        self.message_duration = 5  
+        self.scroll_offset = 0  
+        self.notification_area_height = 200 
 
-    # ---- Función para agregar mensaje ----
+    
     def add_message(self, text):
-        self.messages.append((text, time.time()))
+        self.messages.append((text, time.time())) #Mensajes 
         if len(self.messages) > 200:
             self.messages.pop(0)
 
-    # ---- Dibujar notificaciones con scroll y clip ----
+    
     def draw_messages(self):
         area_width = 400
         area_height = self.notification_area_height
@@ -98,12 +97,11 @@ class Game:
             self.draw_messages()
             pygame.display.flip()
 
-    # ---- MENU ----
     def update_menu(self):
-        # Centrado
+  
         w, h = self.screen.get_size()
         title = self.font.render("CONQUISTA DE CHILOÉ", True, (255,255,255))
-        subtitle = self.font.render("Presiona ENTER para comenzar", True, (255,255,255))
+        subtitle = self.font.render("Presiona ENTER para comenzar", True, (255,255,255)) #Menu de inicio
         self.screen.blit(title, ((w - title.get_width())//2, h//3))
         self.screen.blit(subtitle, ((w - subtitle.get_width())//2, h//3 + 60))
 
@@ -111,7 +109,7 @@ class Game:
         if keys[pygame.K_RETURN]:
             self.game_state = "select_city"
 
-    # ---- SELECCIÓN DE CIUDAD ----
+    
     def update_city_selection(self):
         self.draw_text("Elige tu ciudad:", 300, 50)
 
@@ -120,13 +118,13 @@ class Game:
 
         keys = pygame.key.get_pressed()
         for i in range(len(self.cities)):
-            if keys[getattr(pygame, f"K_{i+1}")]:
+            if keys[getattr(pygame, f"K_{i+1}")]:    #Selector de ciudad inicial
                 self.player_city = self.cities[i]
                 self.game_state = "playing"
                 self.add_message(f"Has elegido {self.player_city.name} ({self.player_city.city_class})")
                 time.sleep(0.2)
 
-    # ---- EVENTOS AUTOMÁTICOS DE TODAS LAS CIUDADES ----
+ 
     def trigger_global_event(self):
         for city in self.cities:
             action = random.choice(["attack", "collect", "money"])
@@ -138,13 +136,13 @@ class Game:
                     result = city.atacar(target)
                     self.add_message(f"{city.name} atacó a {target.name}: {result}")
             elif action == "collect":
-                city.recolectar()
-                self.add_message(f"{city.name} recolectó automáticamente recursos.")
+                city.recolectar()             
+                self.add_message(f"{city.name} recolectó recursos.")        #Eventos realizados por las otras ciudades
             elif action == "money":
                 city.comerciar()
-                self.add_message(f"{city.name} comercié y obtuvo monedas.")
+                self.add_message(f"{city.name} comerció y obtuvo monedas.")
 
-    # ---- GAMEPLAY ----
+    
     def update_gameplay(self):
         c = self.player_city
 
@@ -165,7 +163,7 @@ class Game:
         keys = pygame.key.get_pressed()
 
         if keys[pygame.K_1] and c.can_act("atacar", ACTION_COOLDOWN):
-            target = random.choice([x for x in self.cities if x != c])
+            target = random.choice([x for x in self.cities if x != c])            #Acciones del jugador
             result = c.atacar(target)
             self.add_message(result)
             time.sleep(0.2)

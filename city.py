@@ -36,7 +36,7 @@ class City:
 
         if target.city_class == "Comerciante":
             if random.random() <= 0.30:
-                return f"¡Las tropas se retiraron! El Comerciante {target.name} evitó la guerra."
+                return f"La ciudad Comerciante {target.name} evitó la guerra."
 
         if self.attack > target.attack:
             gain = 20
