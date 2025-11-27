@@ -4,8 +4,7 @@ FPS = 60
 
 CITY_NAMES = [
     "Castro", "Ancud", "Quellón", "Chonchi",
-    "Dalcahue", "Quemchi", "Curaco de Vélez",
-    "Quinchao", "Puqueldón"
+    "Dalcahue" 
 ]
 
 CITY_CLASSES = ["Recolector", "Conquistador", "Comerciante"]
