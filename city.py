@@ -11,21 +11,41 @@ class City:
         self.resources = 0
         self.coins = 0
 
-        # clase extra
+        # Clase extra
         if self.city_class == "Conquistador":
             self.attack += 5
 
-        # sistema de territorios
+        # Sistema de territorios
         self.color = CITY_COLORS[name]
         self.original_color = CITY_COLORS[name]
         self.conquered = False
         self.owner_color = None
 
+        # Cooldowns
         self.last_action_time = {
             "recolectar": 0,
             "atacar": 0,
             "comerciar": 0
         }
+
+    # ---------------------------------------------------------
+    # DISTANCIA ENTRE CIUDADES (SISTEMA NUEVO)
+    # ---------------------------------------------------------
+    def distancia(self, ciudad_nombre):
+        match ciudad_nombre:
+            case "Ancud":
+                return 0
+            case "Dalcahue":
+                return 1
+            case "Castro":
+                return 2
+            case "Chonchi":
+                return 3
+            case "Quellon" | "Quellón":
+                return 4
+            case _:
+                return 999  # Seguridad
+    # ---------------------------------------------------------
 
     def can_act(self, action, cooldown):
         return time.time() - self.last_action_time[action] >= cooldown
@@ -41,12 +61,18 @@ class City:
     def atacar(self, target):
         self.last_action_time["atacar"] = time.time()
 
-        # evitar guerra del Comerciante
+        dist_self = self.distancia(self.name)
+        dist_target = self.distancia(target.name)
+
+     
+        if abs(dist_self - dist_target) != 1:
+            return "Tu ciudad esta muy lejos de estas tierras"
+      
         if target.city_class == "Comerciante":
             if random.random() <= 0.30:
                 return f"La ciudad Comerciante {target.name} evito la guerra."
 
-        # conquista
+
         if self.attack > target.attack:
             gain = 20
             if self.city_class == "Comerciante":
@@ -54,7 +80,7 @@ class City:
 
             self.coins += gain
 
-            # actualizar territorio
+        
             target.conquered = True
             target.owner_color = self.color
 
@@ -70,3 +96,4 @@ class City:
         self.coins += base
         self.last_action_time["comerciar"] = time.time()
         return f"{self.name} gano {base} monedas comerciando."
+
