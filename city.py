@@ -28,9 +28,6 @@ class City:
             "comerciar": 0
         }
 
-    # ---------------------------------------------------------
-    # DISTANCIA ENTRE CIUDADES (SISTEMA NUEVO)
-    # ---------------------------------------------------------
     def distancia(self, ciudad_nombre):
         match ciudad_nombre:
             case "Ancud":
@@ -41,11 +38,8 @@ class City:
                 return 2
             case "Chonchi":
                 return 3
-            case "Quellon" | "Quellón":
+            case "Quellón":
                 return 4
-            case _:
-                return 999  # Seguridad
-    # ---------------------------------------------------------
 
     def can_act(self, action, cooldown):
         return time.time() - self.last_action_time[action] >= cooldown
