@@ -78,7 +78,7 @@ class City:
             target.conquered = True
             target.owner_color = self.color
 
-            return f"{self.name} conquisto {target.name} y gano {gain} monedas."
+            return f"{self.name} conquistó {target.name} y gano {gain} monedas."
 
         else:
             return f"{self.name} fallo al atacar a {target.name}."
