@@ -29,7 +29,7 @@ class Game:
         self.scroll_offset = 0
         self.notification_area_height = 200
 
-        #Menu de ataque / extorsion
+        #Menu de extorsion
         self.attack_menu_visible = False
         self.attack_menu_rects = []
         self.attack_menu_width = 400
