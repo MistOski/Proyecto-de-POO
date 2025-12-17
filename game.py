@@ -50,7 +50,7 @@ class Game:
             self.messages.pop(0)
 
     def draw_messages(self):
-        area_width = 400
+        area_width = 500
         area_height = self.notification_area_height
         x = 10
         y_start = self.screen.get_height() - area_height - 10
@@ -252,8 +252,7 @@ class Game:
 
             self.screen.blit(overlay, (mx, my))
 
-            # ---------------- NOMBRES ----------------
-            # Centro aproximado del primer polígono
+    
             poly0 = polys[0]
             cx = sum(p[0] for p in poly0) / len(poly0)
             cy = sum(p[1] for p in poly0) / len(poly0)
