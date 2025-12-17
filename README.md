@@ -19,5 +19,3 @@ Actualmente solo se encuentran disponibles esos beneficios.
 Cada 30 segundos, cada ciudad realizará una acción aleatoria; podrá comerciar, recolectar o intentar conquistar otras ciudades (actualmente deshabilitado). El sistema de conquista permite ganar monedas y territorios; dichos territorios deben estar cerca de la ciudad inicial del jugador para poder ser conquistados; si una ciudad se encuentra lejos y este no se ha expandido con las ciudades vecinas, no podrá realizar la conquista.
 
 El juego actualmente carece de interfaz, pero cuenta con sus respectivas opciones funcionales, tales como la pestaña de notificaciones que se encuentra en la esquina inferior izquierda de la pantalla, la cual envía mensajes de las acciones del jugador y las otras ciudades. A su vez, con las teclas 1, 2 y 3, el jugador podrá elegir las opciones de acción que tiene disponibles: atacar, comerciar, recolectar (se abre una pestaña para elegir qué ciudad atacar).
-
-
