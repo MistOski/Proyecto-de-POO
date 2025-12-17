@@ -1,21 +1,22 @@
-Funciones actuales
+Ignacio Millapani
+ignaciojavier.millapani@alumnos.ulagos.cl
 
-El siguiente proyecto es un videojuego desarrollado en Pygame enfocado en la estrategia.
+Descripción del Proyecto: Videojuego de Estrategia en Pygame
 
-Los jugadores deben elegir una ciudad y administrarla conforme a sus preferencias, realizar progresos significativos y conquistar las ciudades vecinas, lo cual es el propósito final del juego: conquistar la Región de los Lagos comenzando por una ciudad.
+Este proyecto consiste en un videojuego de estrategia desarrollado utilizando Pygame, cuyo objetivo principal es la gestión y expansión territorial dentro de la Región de los Lagos.
 
-Actualmente, el juego es ejecutable con el comando de "python main.py"; posterior a eso aparece la pantalla de inicio, a la cual se accede con la tecla INTRO. Los jugadores empiezan eligiendo su ciudad, la cual, al realizar una nueva partida, obtendrá una clase aleatoria.
+Los jugadores comienzan seleccionando una ciudad inicial, que al iniciar una nueva partida recibe asignación de una clase aleatoria. A partir de allí, deben administrar sus recursos, tomar decisiones estratégicas y progresar en la conquista de ciudades vecinas, con la meta final de dominar toda la región.
 
-Existen 3 clases: 
+El juego se ejecuta mediante el comando: python main.py
 
-Conquistador: +20% de poder de ataque inicial.
+Al iniciar, se despliega la pantalla de inicio, la cual se activa presionando la tecla INTRO.
 
-Comerciante: +20$ de ganancias al comerciar.
+Cada ciudad dentro del juego realiza una acción automática cada 30 segundos, que puede incluir comerciar, recolectar recursos o intentar conquistar otras ciudades (esta última función se encuentra actualmente deshabilitada). El sistema de conquista está diseñado para permitir la obtención de monedas y expansión territorial, pero las conquistas solo pueden efectuarse sobre ciudades próximas al territorio inicial del jugador; las ciudades alejadas requieren una expansión progresiva a través de las ciudades intermedias.
 
-Recolector: +20$ de ganancias al recolectar recursos.
+Aunque el juego aún no cuenta con una interfaz gráfica completa, se encuentran implementadas funcionalidades clave, entre ellas:
 
-Actualmente solo se encuentran disponibles esos beneficios.
+Pestaña de notificaciones: ubicada en la esquina inferior izquierda, informa sobre las acciones del jugador y de las demás ciudades.
 
-Cada 30 segundos, cada ciudad realizará una acción aleatoria; podrá comerciar, recolectar o intentar conquistar otras ciudades (actualmente deshabilitado). El sistema de conquista permite ganar monedas y territorios; dichos territorios deben estar cerca de la ciudad inicial del jugador para poder ser conquistados; si una ciudad se encuentra lejos y este no se ha expandido con las ciudades vecinas, no podrá realizar la conquista.
+Acciones disponibles: mediante las teclas 1, 2, 3 y 4, el jugador puede seleccionar entre atacar, comerciar, recolectar o extorsionar, desplegándose un menú contextual para elegir la ciudad objetivo en caso de ataques.
 
-El juego actualmente carece de interfaz, pero cuenta con sus respectivas opciones funcionales, tales como la pestaña de notificaciones que se encuentra en la esquina inferior izquierda de la pantalla, la cual envía mensajes de las acciones del jugador y las otras ciudades. A su vez, con las teclas 1, 2 y 3, el jugador podrá elegir las opciones de acción que tiene disponibles: atacar, comerciar, recolectar (se abre una pestaña para elegir qué ciudad atacar).
+Este proyecto combina elementos de gestión de recursos, estrategia territorial y toma de decisiones tácticas, ofreciendo una base sólida para futuras expansiones y mejoras de interfaz gráfica.
